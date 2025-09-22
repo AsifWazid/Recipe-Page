@@ -4,16 +4,175 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: young-serif;
+    src: url(./assets/fonts/young-serif/YoungSerif-Regular.ttf) format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: outfit;
+    src: url(./assets/fonts/outfit/Outfit-VariableFont_wght.ttf) format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: outfit;
+    src: url(./assets/fonts/outfit/Outfit-VariableFont_wght.ttf) format("truetype");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: outfit;
+    src: url(./assets/fonts/outfit/Outfit-VariableFont_wght.ttf) format("truetype");
+    font-weight: 700;
+}
+
 :root {
     --bg-color: hsl(30, 54%, 90%);
     --card-bg: hsl(0, 0%, 100%);
+    --row-color: hsl(30, 18%, 87%);
     --inner-card-bg: hsl(330, 100%, 98%);
-    --inner-card-text-color: hsl(332, 51%, 32%);
-    --h2-color: hsl(14, 45%, 36%);
-
+    --inner-card-accent: hsl(332, 51%, 32%);
+    --accent-color: hsl(14, 45%, 36%);
+    --h1-color: hsl(24, 5%, 18%);
+    --p-color: hsl(30, 10%, 34%);
 }
 
 body {
     background-color: var(--bg-color);
     min-height: 100dvh;
 }
+
+img {
+    width: 100%;
+    display: block;
+    border-radius: 15px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--card-bg);
+    width: 100%;
+    max-width: 599px;
+    margin: 3rem auto;
+    padding: 2rem;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    font-family: outfit, sans-serif;
+    color: var(--p-color);
+    font-weight: 400;
+}
+
+.preparation-card {
+    background-color: var(--inner-card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 100%;
+    color: var(--inner-card-accent);
+    font-family: outfit, sans-serif;
+    font-weight: 600;
+}
+
+.preparation-card ul li::marker {
+    color: var(--inner-card-accent);
+}
+
+h2 {
+    font-family: young-serif, serif;
+    font-weight: 400;
+    color: var(--accent-color);
+}
+
+ol, ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+li {
+    font-family: outfit, sans-serif;
+    color: var(--p-color);
+    font-weight: 400;
+    padding-left: 1rem;
+}
+
+li::marker {
+    color: var(--accent-color);
+    font-family: outfit, sans-serif;
+    font-weight: 700;
+}
+
+.card-header li::marker {
+    font-size: 0.8rem;
+}
+
+.card-header h1 {
+    font-family: young-serif, serif;
+    color: var(--h1-color);
+    font-weight: 400;
+}
+
+hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid var(--row-color);
+    margin: 2rem 0;
+}
+
+.nutrition {
+    font-family: outfit, sans-serif;
+    color: var(--p-color);
+    font-weight: 400;
+}
+
+
+.nutrition table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-top: 0.5rem;
+}
+.nutrition th, .nutrition td {
+    text-align: left;
+    padding: 0.5rem 0;
+}
+.nutrition td {
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+tr:not(:last-child) {
+    border-bottom: 1px solid var(--row-color);
+}
+
+footer {
+    position: static;
+    bottom: 0;
+    text-align: center;
+}
+
+@media (max-width: 576px) { 
+    .card {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+    }
+    
+    img {
+        border-radius: 0;
+    }
+ }
+
